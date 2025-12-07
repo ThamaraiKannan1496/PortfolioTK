@@ -1,5 +1,4 @@
 import ImageCube from "./utilities/ImageCube";
-
 const About = () => {
   return (
     <section
@@ -39,12 +38,12 @@ const About = () => {
           <ImageCube
             size={260}
             images={[
-              "/1.jpg",
-              "/2.jpg",
-              "/3.jpg",
-              "/4.jpg",
-              "/5.jpg",
-              "/6.jpg",
+              "/my1.jpg",
+              "/my2.jpg",
+              "/my3.jpg",
+              "/my4.jpg",
+              "/my5.jpg",
+              "/my6.jpg",
             ]}
             autoRotate={true}
             rotateSpeed={0.5}
