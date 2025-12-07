@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Caveat:wght@400..700&family=Goldman:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sirin+Stencil&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-raleway: "Raleway", "sans-serif";
+  --font-caveat: "Caveat", "sans-serif";
+  --font-sirin: "Sirin Stencil", sans-serif;
+  --font-goldman: "Goldman", sans-serif;
+  --font-bubblegum: "Bubblegum Sans", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* optional custom CSS for circle text alignment */
+.circle-text {
+  transform-origin: center;
+}
+
+/* Hero Text Open animation starts */
+/* top half clip */
+.believe-top {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+/* bottom half clip */
+.believe-bottom {
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+
+/* hover animations */
+h2:hover .believe-top {
+  transform: translateY(-18px);
+}
+
+h2:hover .believe-bottom {
+  transform: translateY(18px);
+}
+
+h2:hover .believe-middle {
+  transform: translateY(-50%) scaleY(1);
+}
+
+.believe-middle {
+  transform: translateY(-50%) scaleY(0);
+}
+
+/* Hero Text Open animation ends */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
