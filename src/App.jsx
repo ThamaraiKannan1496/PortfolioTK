@@ -7,10 +7,10 @@ import InstagramButton from "./components/utilities/InstagramButton";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
 import ScrollPercentButton from "./components/utilities/ScrollPercentButton";
-import AnimatedCursor from "react-animated-cursor";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import CustomCursor from "./components/utilities/CustomCursor";
 
 function App() {
   useEffect(() => {
@@ -27,21 +27,7 @@ function App() {
   }, []);
   return (
     <div className="flex">
-      <AnimatedCursor
-        innerSize={0}
-        outerSize={40} // large lens
-        outerScale={2} // lens scale on hover
-        outerAlpha={0.25} // transparency
-        trailingSpeed={3}
-        color="255, 255, 255"
-        outerStyle={{
-          backdropFilter: "blur(0px) brightness(1.3)", // zoom + brighten
-          WebkitBackdropFilter: "blur(0px) brightness(1.3)",
-          border: "1px solid rgba(255,255,255,0.4)",
-        }}
-        showSystemCursor={false}
-      />
-
+      <CustomCursor />
       <Navbar />
       <main className="bg-black text-white w-full">
         <section className="ps-0 pr-0 lg:ps-72 lg:pr-2">
