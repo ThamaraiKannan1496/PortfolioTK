@@ -1,8 +1,10 @@
 const SlideButton = ({ label, href }) => {
+  const isHashLink = href.startsWith("#");
+
   return (
     <a
       href={href}
-      target="_blank" // <-- opens PDF in new tab
+      target={isHashLink ? "_self" : "_blank"}
       rel="noopener noreferrer"
       className="relative inline-block text-center
       rounded-tl-2xl rounded-br-2xl
@@ -12,7 +14,7 @@ const SlideButton = ({ label, href }) => {
       cursor-pointer group overflow-hidden"
     >
       {/* TEXT */}
-      <span className="relative z-10 text-lg font-poppins tracking-wider">
+      <span className="relative z-10 text-sm font-poppins tracking-wider">
         {label}
       </span>
 

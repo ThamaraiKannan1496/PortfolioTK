@@ -130,7 +130,7 @@ export default function Projects() {
       <div className="py-1 flex gap-8">
         <button
           onClick={() => move("prev")}
-          className="p-3 hover:scale-110 transition"
+          className="p-3 hover:scale-110 transition cursor-pointer"
         >
           <img
             src="https://i.postimg.cc/jwWs9zZ1/arrow-L.png"
@@ -140,7 +140,7 @@ export default function Projects() {
 
         <button
           onClick={() => move("next")}
-          className="p-3 hover:scale-110 transition"
+          className="p-3 hover:scale-110 transition cursor-pointer"
         >
           <img
             src="https://i.postimg.cc/k6kndBHg/arrow-R.png"
