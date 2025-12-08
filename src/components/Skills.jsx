@@ -55,11 +55,32 @@ const skills = [
 export default function Skills() {
   return (
     <section id="skills" className="py-20 px-10">
-      <h2 className="text-5xl font-bold text-center mb-14 font-bubblegum">
-        Skills
-      </h2>
+      <div className="flex items-center justify-center gap-4 pt-10 mb-10">
+        <span className="w-20 h-[3px] bg-[#F76500] rounded-full"></span>
 
-      <div className="flex flex-wrap justify-center gap-10 max-w-5xl mx-auto">
+        <h2
+          className="text-5xl font-bold font-bubblegum text-white text-center"
+          data-aos="zoom-in"
+        >
+          Skills
+        </h2>
+
+        <span className="w-20 h-[3px] bg-[#F76500] rounded-full"></span>
+      </div>
+
+      {/* RESPONSIVE GRID */}
+      <div
+        className="
+          grid 
+          grid-cols-2 
+          sm:grid-cols-4 
+          lg:grid-cols-4 
+          xl:grid-cols-5
+          gap-8 
+          max-w-6xl 
+          mx-auto
+        "
+      >
         {skills.map((skill, i) => (
           <MagneticBubble key={i} icon={skill.icon} title={skill.title} />
         ))}
@@ -68,12 +89,15 @@ export default function Skills() {
   );
 }
 
-/* -------------------------------------------
-      MAGNETIC FLOATING BUBBLE COMPONENT
-------------------------------------------- */
+/* ---------------------------------------------------------
+      COSMIC MAGNETIC BUBBLE (Tilt + Glow + Orbit + Float)
+--------------------------------------------------------- */
 function MagneticBubble({ icon, title }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-30, 30], [10, -10]);
+  const rotateY = useTransform(x, [-30, 30], [-10, 10]);
 
   const [hovering, setHovering] = useState(false);
 
@@ -82,8 +106,8 @@ function MagneticBubble({ icon, title }) {
     const dx = e.clientX - (rect.left + rect.width / 2);
     const dy = e.clientY - (rect.top + rect.height / 2);
 
-    x.set(dx * 0.3);
-    y.set(dy * 0.3);
+    x.set(dx * 0.4);
+    y.set(dy * 0.4);
   };
 
   const handleMouseLeave = () => {
@@ -94,12 +118,19 @@ function MagneticBubble({ icon, title }) {
 
   return (
     <motion.div
-      style={{ x, y }}
+      style={{ x, y, rotateX, rotateY }}
       animate={{
-        y: hovering ? y.get() : [0, -6, 0, 6, 0],
+        y: hovering ? y.get() : [0, -10, 0, 8, 0],
+        boxShadow: hovering
+          ? [
+              "0 0 0px rgba(255,255,255,0)",
+              "0 0 20px rgba(0,212,255,0.5)",
+              "0 0 30px rgba(0,212,255,0.7)",
+            ]
+          : "0 4px 20px rgba(0,0,0,0.15)",
       }}
       transition={{
-        duration: hovering ? 0.2 : 4,
+        duration: hovering ? 0.25 : 4,
         repeat: hovering ? 0 : Infinity,
         ease: "easeInOut",
       }}
@@ -109,14 +140,31 @@ function MagneticBubble({ icon, title }) {
       }}
       onMouseLeave={handleMouseLeave}
       className="
-        bg-white dark:bg-neutral-900 shadow-xl 
-        rounded-full p-6 w-28 h-28 flex flex-col items-center justify-center
-        hover:shadow-2xl transition-all cursor-pointer 
-        border border-gray-200 dark:border-neutral-700
+        relative 
+        bg-white dark:bg-neutral-900 
+        rounded-full p-6 w-28 h-28 
+        flex flex-col items-center justify-center
+        cursor-pointer border border-gray-200 dark:border-neutral-700
+        transition-all hover:scale-[1.12]
       "
     >
-      <span className="text-4xl">{icon}</span>
-      <p className="mt-2 text-sm font-medium text-center">{title}</p>
+      {/* ORBIT RING */}
+      <motion.div
+        className="absolute inset-0 rounded-full border-2 border-cyan-400/40"
+        animate={{
+          rotate: hovering ? 360 : 0,
+          scale: hovering ? 1.15 : 1,
+          opacity: hovering ? 1 : 0.4,
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+
+      <span className="text-4xl relative z-10">{icon}</span>
+      <p className="mt-2 text-sm font-medium text-center z-10">{title}</p>
     </motion.div>
   );
 }

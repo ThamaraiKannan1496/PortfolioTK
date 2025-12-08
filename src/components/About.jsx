@@ -70,7 +70,10 @@ export default function AboutSection() {
   };
 
   return (
-    <section className="w-full bg-black relative overflow-hidden py-24 px-6 sm:px-10">
+    <section
+      className="w-full bg-black relative overflow-hidden py-7 md:py-14  px-6 sm:px-10"
+      id="about"
+    >
       {/* BACKGROUND BLOBS */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute right-16 top-10 w-72 h-72 rounded-full bg-[#f4a82520] blur-3xl animate-blob" />

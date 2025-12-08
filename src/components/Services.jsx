@@ -36,9 +36,19 @@ const Services = () => {
 
   return (
     <section id="services" className="px-5 py-16 bg-black text-white">
-      <h2 className="text-5xl font-bold text-center mb-16 font-bubblegum text-white">
-        Services
-      </h2>
+      <div className="flex items-center justify-center gap-4 pt-1 mb-10">
+        <span className="w-20 h-[3px] bg-[#F76500] rounded-full"></span>
+
+        <h2
+          className="text-5xl font-bold font-bubblegum text-white text-center"
+          data-aos="zoom-in"
+        >
+          Services
+        </h2>
+
+        <span className="w-20 h-[3px] bg-[#F76500] rounded-full"></span>
+      </div>
+
       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 place-items-center">
         {services.map((item, i) => (
           <UiCard key={i} title={item.title} tags={item.tags} img={item.img} />

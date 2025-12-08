@@ -27,7 +27,7 @@ function App() {
   }, []);
   return (
     <div className="flex">
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <Navbar />
       <main className="bg-black text-white w-full">
         <section className="ps-0 pr-0 lg:ps-72 lg:pr-2">
