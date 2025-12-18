@@ -151,7 +151,7 @@ export default function AboutSection() {
           viewport={{ once: true }}
           className="relative flex justify-center items-center"
         >
-          {/* ⭐ PERFECT CURVED ARROW (TOUCHES RING) */}
+          {/*  CURVED ARROW  */}
           <motion.svg
             width="300"
             height="300"
@@ -227,7 +227,7 @@ export default function AboutSection() {
             className="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-[#f4a825] shadow-[0_0_60px_#f4a82555] bg-black z-20 relative"
           >
             <img
-              src="/kannanbg.png"
+              src="/my5.jpg"
               alt="profile"
               className="w-full h-full object-cover"
             />
