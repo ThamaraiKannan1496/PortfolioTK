@@ -38,7 +38,7 @@ const Home = () => {
             {/* MIDDLE HIGHLIGHT */}
             <span
               className="believe-middle absolute top-1/2 left-0 -translate-y-1/2 scale-y-0 
-                w-[100%] text-black bg-yellow-300 text-[0.25em] font-medium tracking-[0.7em] 
+                w-full text-black bg-yellow-300 text-[0.25em] font-medium tracking-[0.7em] 
                 text-center transition-all duration-500"
             >
               Kannan
