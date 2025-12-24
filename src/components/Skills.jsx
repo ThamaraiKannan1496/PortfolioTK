@@ -72,7 +72,7 @@ function SkillCard({ icon, title }) {
       whileHover={{ y: -4, scale: 1.04 }}
       transition={{ type: "spring", stiffness: 220, damping: 18 }}
       className="
-        h-20
+        h-28
         rounded-xl
         bg-white/5
         border border-white/10
