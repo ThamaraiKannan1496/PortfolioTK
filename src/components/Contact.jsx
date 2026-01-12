@@ -149,7 +149,7 @@ export default function Contact() {
               rounded-tl-2xl rounded-br-2xl
               w-full md:w-1/2 mx-auto py-2.5 mt-2
               font-medium transition-all duration-300 
-              border border-black overflow-hidden group
+              border border-white overflow-hidden group
               ${
                 loading
                   ? "opacity-60 cursor-not-allowed bg-white text-black"
